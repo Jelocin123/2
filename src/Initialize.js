@@ -2,17 +2,32 @@ export default class Initialize {
 
   constructor() {
 
-    console.log("Initialize ready");
+      this.weather = {
 
-    this.ninja = document.createElement("div");
-    this.ninja.id = "ninja";
-    document.body.appendChild(this.ninja);
+        author: "The Weatherman",
+        month: ["januar", "februar", "marts", "april", "maj", "juni", "juli"],
+        averageTemperature: [-10, -10, -10, 12, 15, 20, 25, 27],
+        
+        };
 
-    let ninjaImg = document.createElement("img");
-    ninjaImg.src = "./assets/ninja.png";
-    this.ninja.appendChild(ninjaImg);
+      
+        this.container = document.createElement('div');
+        this.container.id = "container";
+        this.container.className = "container";
+        document.body.appendChild(this.container);
 
+        this.container.innerHTML= this.weather.month.map( (item, index)=>{
+
+          return ` 
+          
+          <div class= ${"maps" + index} id='block'>${item}</div>
+          
+                `
+
+        }).join('') + '';
 
 
   } // END constructor
+
+
 } // END class
